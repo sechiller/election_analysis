@@ -1,14 +1,13 @@
-# -*- coding: UTF-8 -*-
-"""PyPoll Homework Challenge Solution."""
-
 # Add our dependencies.
 import csv
+from tkinter import N
+
 import os
 
 # Add a variable to load a file from a path.
-file_to_load = os.path.join("..", "Resources", "election_results.csv")
+file_to_load = os.path.join("resources","election_results.csv")
 # Add a variable to save the file to a path.
-file_to_save = os.path.join("analysis", "election_analysis.txt")
+file_to_save = os.path.join("analysis", "election_results.txt")
 
 # Initialize a total vote counter.
 total_votes = 0
@@ -17,8 +16,8 @@ total_votes = 0
 candidate_options = []
 candidate_votes = {}
 
-# 1: Create a county list and county votes dictionary.
-    #ss added
+# 1: Create a county list and county votes dictionary. - ss
+
 county_list = []
 county_votes = {}
 
@@ -28,8 +27,8 @@ winning_candidate = ""
 winning_count = 0
 winning_percentage = 0
 
-# 2: Track the largest county and county voter turnout.
-    #ss added
+# 2: Track the largest county and county voter turnout. - ss
+
 largest_turnout = ""
 turnout_count = 0
 
@@ -54,7 +53,7 @@ with open(file_to_load) as election_data:
 
         # 3: Extract the county name from each row.
             #ss added - need to find final to find row.
-        county_name = row[]
+        county_name = row[1]
 
         # If the candidate does not match any existing candidate add it to
         # the candidate list
@@ -70,6 +69,7 @@ with open(file_to_load) as election_data:
         candidate_votes[candidate_name] += 1
 
         # 4a: Write an if statement that checks that the
+        #ss added
         # county does not match any existing county in the county list.
         if county_name not in county_list:
 
@@ -98,24 +98,36 @@ with open(file_to_save, "w") as txt_file:
     txt_file.write(election_results)
 
     # 6a: Write a for loop to get the county from the county dictionary.
-
+    for county_name in county_list:
         # 6b: Retrieve the county vote count.
-
+        votes_c = county_votes.get(county_name)
         # 6c: Calculate the percentage of votes for the county.
-
+        county_percentage = float(votes_c) / float(total_votes)*100
 
          # 6d: Print the county results to the terminal.
+        county_results = (
+            f"{county_name}: {county_percentage:.1f}% ({votes_c:,})\n")
 
+        print(county_results)
          # 6e: Save the county votes to a text file.
-
+        txt_file.write(county_results) 
          # 6f: Write an if statement to determine the winning county and get its vote count.
-
+        if (votes_c > turnout_count):
+            turnout_count = votes_c
+            largest_turnout = county_name
 
     # 7: Print the county with the largest turnout to the terminal.
+    largest_turnout_summary = (
+        f"\n"
+        f"-------------------------\n"
+        f"Largest County Turnout: {largest_turnout}\n"
+        f"-------------------------\n")
+    print(largest_turnout_summary)
+    
 
 
     # 8: Save the county with the largest turnout to a text file.
-
+    txt_file.write(largest_turnout_summary)
 
     # Save the final candidate vote count to the text file.
     for candidate_name in candidate_votes:
