@@ -3,7 +3,7 @@
 ## Overview of Election Analysis
 
 ### Purpose
-  For this project, our client has just come off of a succesful run of the play *Fever* where fundraising goals were met quickly. They want to understand how their play performed compared to others, and identify any indicators of success for future endeavors. The purpose of this analysis is to understand how different campaigns fared in relation to their launch dates and their funding goals. Visualizations were used to further understand and summarize campaign outcomes based on their launch dates and funding goals.
+  For this project, the election commission has requested election audit results. They are hoping to view the voter turnout for each county, the percentage of votes from each county out of the total county and the county with the highest turnout. The goal of this project is to update the code to include additional for loops and conditional statements that find the requested data. The data then has to be printed and saved to a file. 
 
 ## Election-Audit Results
 
@@ -31,6 +31,4 @@
 
 ## Election-Audit Summary
 
-- In a summary statement, provide a business proposal to the election commission on how this script can be used—with some modifications—for any election. Give at least two examples of how this script can be modified to be used for other elections.What are two conclusions you can draw about the Outcomes based on Launch Date?
-
-     To expand the analysis of Outcome Based on Goals, It would be interesting to bring in the pledged data to better understand the outcomes quantitatively and not just whether the play was successful. You could update the table to have average % pledged (compared to goal) and have that on the y axis with a separate line for failed and successful. It would also be valuable to combine these two analysis and visualize Pledged or Goal amount vs Launch date.   
+     This election script can easily be used - with slight modifications - to summarize election data for any type of election. For example, if this was a city election instead of a county election, the code could be easily updated by replacing the word "county" with "city". You would only need to verify that the city name was in the second column of the provided data - or make a small update to the code to refer to the correct column. Similarily you could update the code for a election for a local bill instead of a candidate. You would only need to replace the word "candidate" with "bill" in the code, and verify that the bill name was in the third column of the provided data - or make a small update to the code to refer to the correct column.
